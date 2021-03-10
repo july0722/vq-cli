@@ -1,0 +1,16 @@
+{
+  "name": "vq-cli",
+  "bin": {
+    "vq": "main.js"
+  },
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "commander": "^7.1.0",
+    "compression-webpack-plugin": "6.1.1",
+    "inquirer": "^8.0.0",
+    "strip-ansi": "^6.0.0",
+    "webpack": "4.46.0",
+    "webpack-merge": "4.2.2"
+  },
+  "devDependencies": {}
+}
