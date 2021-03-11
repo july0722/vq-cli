@@ -10,7 +10,7 @@
 export default {
   computed: {
     layout({ $route: { meta } }) {
-      return meta.layout || 'default'
+      return `layout-${meta.layout || 'default'}`
     },
   },
 }

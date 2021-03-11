@@ -1,13 +1,9 @@
 import Vue from 'vue'
-
-const name = name =>
-  name
-    .split('/')
-    .pop()
-    .replace(/\.\w+$/, '')
-
-const defaultLayoutCtx = require.context('../layouts', false, /\.vue$/)
-defaultLayoutCtx.keys().forEach(layout => Vue.component(name(layout), defaultLayoutCtx(layout).default))
-
-const systemLayoutCtx = require.context('@/layouts', false, /\.vue$/)
-systemLayoutCtx.keys().forEach(layout => Vue.component(name(layout), systemLayoutCtx(layout).default))
+;[require.context('../layouts', true, /\.vue$/), require.context('@/layouts', true, /\.vue$/)].forEach(ctx => {
+  ctx
+    .keys()
+    .map(ctx)
+    .forEach(item => {
+      item.default.name && Vue.component(`layout-${item.default.name}`, item.default)
+    })
+})
