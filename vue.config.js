@@ -1,4 +1,5 @@
 const merge = require('webpack-merge')
+const RouterWebpackPlugin = require('./plugins/router.webpack.plugin')
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
 const { resolve } = require('path')
 const isProduction = process.env.NODE_ENV === 'production'
@@ -23,7 +24,6 @@ if (fs.existsSync(configPath)) {
     throw e
   }
 }
-process.env.VUE_APP_PROCESS_CWD = process.cwd()
 
 module.exports = merge(
   {
@@ -43,6 +43,7 @@ module.exports = merge(
       port: 9097,
     },
     configureWebpack: (config) => {
+      config.plugins.push(new RouterWebpackPlugin())
       isProduction &&
         config.plugins.push(
           new CompressionWebpackPlugin({

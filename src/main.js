@@ -2,10 +2,10 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 // import store from './store'
+import './layouts'
 
 Vue.config.productionTip = false
-const cwd = process.env.VUE_APP_PROCESS_CWD
-require(`${cwd}/src/router`).default(router)
+require(`@/router`).default(router)
 
 new Vue({
   router,
