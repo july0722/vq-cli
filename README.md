@@ -15,7 +15,18 @@ npm link
 ## 根据 swagger 同步生成 api 文件
 
 ```
-va api
+vq api
+```
+
+```js
+// 对应的配置
+  api: {
+    prefixFilter: ['kaipuyun', 'fake-data'], // 过滤该前缀
+    custom: {
+      '/advance-notice-question/checkAdvanceNoticeWithdraw': { responseType: 'blob' }, // 对应的api可独立配置参数
+      '/report/exportJsgcReport': { responseType: 'blob' },
+    },
+  },
 ```
 
 ## 运行
