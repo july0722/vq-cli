@@ -14,7 +14,12 @@ try {
     .command('build')
     .description('vue-cli-service build')
     .option('--report', `generate report.html to help analyze bundle content`)
-    .action((program) => require('./bin/build')(program))
+    .action(program => require('./bin/build')(program))
+
+  program
+    .command('api')
+    .description('sync swagger api')
+    .action(() => require('./bin/api'))
 
   program.parse(process.argv)
 } catch (e) {

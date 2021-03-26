@@ -42,7 +42,12 @@ module.exports = merge(
     devServer: {
       port: 9097,
     },
-    configureWebpack: (config) => {
+    chainWebpack: config => {
+      config.resolve.alias.set('@api', resolve(__dirname, 'src/api/index.js'))
+      config.resolve.alias.set('@router', resolve(__dirname, 'src/router/index.js'))
+      config.resolve.alias.set('@store', resolve(__dirname, 'src/store/index.js'))
+    },
+    configureWebpack: config => {
       config.plugins.push(new RouterWebpackPlugin())
       isProduction &&
         config.plugins.push(

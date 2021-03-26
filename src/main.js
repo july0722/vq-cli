@@ -5,7 +5,9 @@ import store from './store'
 import './layouts'
 
 Vue.config.productionTip = false
-require(`@/router`).default(router)
+require('@/router').default(router)
+require('@/main').default()
+Object.defineProperty(Vue.prototype, '$api', { value: require('./api').default })
 
 new Vue({
   router,
